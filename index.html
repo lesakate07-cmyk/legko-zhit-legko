@@ -5,147 +5,200 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Легко жить Легко</title>
 
-<!-- AOS (мягкий моушен) -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f4effb;
-  color: #2b1a40;
-  line-height: 1.75;
+:root{
+  --lilac:#c9b7ff;
+  --violet:#7b5cd6;
+  --bg:#f6f2ff;
 }
 
-/* HERO */
-.hero {
-  min-height: 90vh;
-  background: url("header.png") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:#2b1a40;
+  line-height:1.7;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at bottom, rgba(255,255,255,0.3), rgba(0,0,0,0.25));
+/* ---------- HERO ---------- */
+.hero{
+  min-height:95vh;
+  background:url("header.png") center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
 }
 
-.hero-inner {
-  position: relative;
-  z-index: 2;
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(140,110,220,0.35),
+    rgba(40,20,70,0.45)
+  );
+  animation:breath 14s ease-in-out infinite;
 }
 
-.title {
-  font-size: 58px;
-  color: white;
-  font-family: "Brush Script MT", "Segoe Script", cursive;
-  text-shadow: 0 20px 40px rgba(255,255,255,0.6);
-  animation: float 10s ease-in-out infinite;
+@keyframes breath{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+.hero-inner{
+  position:relative;
+  z-index:2;
+  padding:20px;
 }
 
-.subtitle {
-  color: white;
-  max-width: 640px;
-  margin: 20px auto;
-  font-size: 20px;
+.hero h1{
+  font-size:60px;
+  color:#fff;
+  font-family:"Brush Script MT","Segoe Script",cursive;
+  text-shadow:0 20px 40px rgba(255,255,255,.6);
 }
 
-/* SECTIONS */
-section {
-  padding: 110px 22px;
-  max-width: 1100px;
-  margin: auto;
+.hero p{
+  color:#fff;
+  font-size:22px;
+  max-width:700px;
+  margin:20px auto 0;
 }
 
-h2 {
-  font-size: 36px;
-  text-align: center;
-  margin-bottom: 40px;
-  color: #4a2f7a;
+/* ---------- SECTIONS ---------- */
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:110px 22px;
 }
 
-/* GLASS CARD */
-.card {
-  background: linear-gradient(180deg, #ffffff, #f1ebff);
-  border-radius: 32px;
-  padding: 40px;
-  box-shadow: 0 30px 70px rgba(120,90,180,0.25);
+h2{
+  text-align:center;
+  font-size:38px;
+  color:#4a2f7a;
+  margin-bottom:50px;
 }
 
-/* PHILOSOPHY */
-.philosophy {
-  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(245,240,255,0.95));
-  border-radius: 50px;
-  padding: 70px 50px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6),
-              0 40px 90px rgba(120,90,180,0.25);
+/* ---------- GLASS ---------- */
+.glass{
+  background:linear-gradient(180deg,#fff,#f1ebff);
+  border-radius:36px;
+  padding:50px;
+  box-shadow:0 30px 80px rgba(120,90,180,.3);
 }
 
-/* SPEAKER */
-.speaker {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+/* ---------- ABOUT ---------- */
+.about p{
+  margin-bottom:16px;
 }
 
-.speaker img {
-  width: 240px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 25px 50px rgba(120,90,180,0.35);
+/* ---------- PHILOSOPHY ---------- */
+.philosophy{
+  background:linear-gradient(135deg,#ffffffcc,#f3ecff);
+  border-radius:50px;
+  padding:70px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.7),
+    0 40px 100px rgba(150,120,255,.35);
 }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  padding: 18px 34px;
-  border-radius: 22px;
-  background: white;
-  color: #5b3fa6;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 16px 32px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+/* ---------- PROGRAM ---------- */
+.program ul{
+  list-style:none;
+  padding:0;
 }
 
-.btn:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+.program li{
+  padding:16px 0;
+  border-bottom:1px solid rgba(120,90,180,.15);
 }
 
-.btn:active {
-  transform: scale(0.96);
+/* ---------- SPEAKER ---------- */
+.speaker{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:40px;
+  align-items:center;
 }
 
-/* CTA */
-.cta {
-  background: linear-gradient(135deg, #7c5fd6, #b79cff);
-  border-radius: 50px;
-  padding: 80px 40px;
-  color: white;
-  text-align: center;
-  box-shadow: 0 40px 90px rgba(120,90,180,0.45);
+.speaker img{
+  width:240px;
+  height:240px;
+  object-fit:cover;
+  border-radius:50%;
+  box-shadow:0 25px 60px rgba(140,110,220,.45);
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .title { font-size: 44px; }
-  h2 { font-size: 28px; }
-  section { padding: 80px 18px; }
-  .speaker { grid-template-columns: 1fr; text-align: center; }
+/* ---------- REVIEWS ---------- */
+.reviews{
+  display:grid;
+  gap:24px;
+}
+
+.review{
+  max-width:720px;
+  padding:26px 32px;
+  border-radius:28px;
+  background:#fff;
+  box-shadow:0 20px 50px rgba(120,90,180,.25);
+}
+
+.review:nth-child(even){
+  margin-left:auto;
+  background:linear-gradient(135deg,#f8f5ff,#ece5ff);
+}
+
+/* ---------- CTA ---------- */
+.cta{
+  background:linear-gradient(135deg,#7c5fd6,#b79cff);
+  border-radius:60px;
+  padding:90px 40px;
+  color:#fff;
+  text-align:center;
+  box-shadow:0 50px 120px rgba(120,90,180,.5);
+}
+
+.cta p{
+  max-width:700px;
+  margin:0 auto 30px;
+}
+
+/* ---------- BUTTON ---------- */
+.btn{
+  display:inline-block;
+  padding:20px 38px;
+  border-radius:26px;
+  background:#fff;
+  color:#5b3fa6;
+  font-weight:600;
+  text-decoration:none;
+  box-shadow:0 18px 40px rgba(0,0,0,.25);
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-4px) scale(1.03);
+  box-shadow:0 28px 60px rgba(0,0,0,.35);
+}
+
+.btn:active{
+  transform:scale(.96);
+}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:768px){
+  .hero h1{font-size:44px}
+  h2{font-size:28px}
+  section{padding:80px 18px}
+  .speaker{grid-template-columns:1fr;text-align:center}
 }
 </style>
 </head>
@@ -155,59 +208,81 @@ h2 {
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner" data-aos="fade-up">
-    <div class="title">Легко жить Легко</div>
-    <div class="subtitle">
-      Пространство, где жизнь становится легче, глубже и честнее
-    </div>
+    <h1>Легко жить Легко</h1>
+    <p>Пространство, где жизнь становится легче, глубже и честнее</p>
   </div>
 </div>
+
+<!-- ABOUT -->
+<section data-aos="fade-up">
+  <h2>О проекте</h2>
+  <div class="glass about">
+    <p>Это проект про вас и для вас.</p>
+    <p>Проект, в котором вы перестаёте убегать от себя и начинаете выстраивать жизнь осознанно, спокойно и по-настоящему.</p>
+    <p>В основе «Легко жить Легко» — работа с мышлением, установками и состоянием — без давления и «надо».</p>
+    <p>Здесь можно быть живой. Настоящей. Разной.</p>
+  </div>
+</section>
 
 <!-- PHILOSOPHY -->
 <section data-aos="fade-up">
   <div class="philosophy">
-    <h2>Философия проекта</h2>
-    <p>
-      Это пространство, где не нужно быть правильной.
-      Можно быть живой. Настоящей. Разной.
-      Лёгкость начинается не с усилия, а с честного контакта с собой.
-    </p>
+    <h2>Философия</h2>
+    <p>Лёгкость — это не отсутствие глубины. Это умение быть с собой честно и бережно.</p>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section data-aos="fade-up">
+  <h2>Программа «7-дневка START»</h2>
+  <div class="glass program">
+    <ul>
+      <li>День 1 — честная точка А</li>
+      <li>День 2 — осознание сценариев</li>
+      <li>День 3 — работа с установками</li>
+      <li>День 4 — контакт с телом и эмоциями</li>
+      <li>День 5 — новые решения</li>
+      <li>День 6 — закрепление</li>
+      <li>День 7 — интеграция и опора</li>
+    </ul>
   </div>
 </section>
 
 <!-- SPEAKER -->
 <section data-aos="fade-up">
   <h2>Спикер проекта</h2>
-  <div class="speaker card">
-    <div>
-      <img src="speaker.jpg" alt="Екатерина Переслегина">
-    </div>
+  <div class="glass speaker">
+    <img src="speaker.jpg" alt="Екатерина Переслегина">
     <div>
       <h3>Екатерина Переслегина</h3>
-      <p>
-        Основатель проекта «Легко жить легко», ведущая мероприятий,
-        бизнес-леди, амбассадор FitStarts, мама двух детей.
-      </p>
-      <p style="font-style: italic;">
-        «Моя философия — идти по жизни легко и с удовольствием.
-        И я знаю, как помочь тебе к этому прийти».
-      </p>
+      <p>Основатель проекта, ведущая мероприятий, бизнес-леди, амбассадор FitStarts, мама двух детей.</p>
+      <p><em>«Я знаю, как прийти к жизни легко и с удовольствием»</em></p>
     </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section data-aos="fade-up">
+  <h2>Отзывы</h2>
+  <div class="reviews">
+    <div class="review">Благодарю, это было необычно и глубоко. Лёгкие техники — с огромной силой.</div>
+    <div class="review">Я капелька — часть океана. И я есть океан.</div>
+    <div class="review">Появилась радость, понимание себя и больше любви к себе.</div>
+    <div class="review">Ощущалось безопасное пространство и искренность.</div>
+    <div class="review">Я горда собой, что прошла этот путь.</div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta" data-aos="fade-up">
-  <h2>Готова начать из себя?</h2>
-  <p>Без давления. В своём темпе. В безопасном пространстве.</p>
-  <a class="btn" href="https://yookassa.ru/my/i/aW0Xs0BLQynA/l" target="_blank">
-    Перейти к оплате
-  </a>
+  <h2>Готова начать?</h2>
+  <p>Без давления. В безопасности. В своём темпе.</p>
+  <a class="btn" href="https://yookassa.ru/my/i/aW0Xs0BLQynA/l" target="_blank">Перейти к оплате</a>
 </section>
 
-<!-- AOS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 1200, once: true });
+AOS.init({duration:1200,once:true});
 </script>
 
 </body>
