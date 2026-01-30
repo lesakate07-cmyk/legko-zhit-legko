@@ -122,6 +122,29 @@ h2{
   background:#fff;
   box-shadow:0 25px 65px rgba(120,90,180,.3);
 }
+  /* QUOTES IN REVIEWS */
+.review{
+  position:relative;
+  overflow:hidden;
+}
+
+.review::before{
+  content:"“";
+  position:absolute;
+  top:-20px;
+  left:22px;
+  font-size:120px;
+  font-family:"Georgia", serif;
+  color:rgba(140,100,220,.25);
+  line-height:1;
+  pointer-events:none;
+}
+
+.review:nth-child(even)::before{
+  left:auto;
+  right:22px;
+  transform:scaleX(-1);
+}
 .review:nth-child(even){
   margin-left:auto;
   background:linear-gradient(135deg,#f8f4ff,#ece3ff);
