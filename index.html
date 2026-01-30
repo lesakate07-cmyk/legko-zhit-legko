@@ -178,6 +178,73 @@ input{
   h2{font-size:30px}
   section{padding:80px 18px}
   .speaker{grid-template-columns:1fr;text-align:center}
+/* ===== ДЫМКА РАССВЕТА ===== */
+.sun-haze{
+  position:fixed;
+  inset:-20%;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,255,255,.25), transparent 60%),
+    radial-gradient(circle at 70% 40%, rgba(220,190,255,.25), transparent 65%);
+  filter:blur(70px);
+  opacity:.6;
+  pointer-events:none;
+  z-index:0;
+  animation:hazeBreath 18s ease-in-out infinite;
+}
+
+@keyframes hazeBreath{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+}
+
+/* ===== СВЕТ ЗА ЗАГОЛОВКОМ ===== */
+.hero h1{
+  position:relative;
+}
+
+.hero h1::after{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background:radial-gradient(circle, rgba(255,255,255,.35), transparent 65%);
+  filter:blur(40px);
+  z-index:-1;
+  animation:titleGlow 6s ease-in-out infinite;
+}
+
+@keyframes titleGlow{
+  0%,100%{opacity:.6}
+  50%{opacity:1}
+}
+
+/* ===== ПЕРЬЯ ===== */
+.feathers{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  overflow:hidden;
+}
+
+.feathers span{
+  position:absolute;
+  top:-20%;
+  width:140px;
+  height:140px;
+  background:url("feather.png") center/contain no-repeat;
+  opacity:.25;
+  animation:floatDown linear infinite;
+}
+
+.feathers span:nth-child(1){left:5%;animation-duration:42s}
+.feathers span:nth-child(2){left:20%;animation-duration:36s}
+.feathers span:nth-child(3){left:40%;animation-duration:48s}
+.feathers span:nth-child(4){left:60%;animation-duration:40s}
+.feathers span:nth-child(5){left:80%;animation-duration:52s}
+
+@keyframes floatDown{
+  from{transform:translateY(0) rotate(0deg)}
+  to{transform:translateY(160vh) rotate(360deg)}
 }
 </style>
 </head>
@@ -324,7 +391,16 @@ input{
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({duration:1300,once:true});</script>
-<!-- FEATHERS -->
+<script>
+window.addEventListener("scroll",()=>{
+  const y = window.scrollY;
+  document.querySelectorAll(".feathers span").forEach((f)=>{
+    f.style.transform =
+      `translateY(${y * 0.15}px) rotate(${y * 0.03}deg)`;
+  });
+});
+</script>
+  <!-- FEATHERS -->
 <div class="feathers">
   <span></span>
   <span></span>
