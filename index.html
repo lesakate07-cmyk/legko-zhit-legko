@@ -269,6 +269,19 @@ input{
   from{transform:translateY(0) rotate(0deg)}
   to{transform:translateY(160vh) rotate(360deg)}
 }
+  @media (max-width: 768px) {
+
+  section {
+    overflow: visible !important;
+  }
+
+  .glass {
+    max-width: 100% !important;
+    padding: 40px 22px !important;
+    backdrop-filter: blur(14px);
+  }
+
+}
 </style>
 </head>
 
@@ -444,7 +457,7 @@ input{
 </section>
   
   <!-- GIFT / WATCH STREAM -->
-<section data-aos="fade-up">
+<section data-aos="fade-in">
   <div class="glass" style="text-align:center; max-width:900px; margin:auto;">
 
     <p style="
