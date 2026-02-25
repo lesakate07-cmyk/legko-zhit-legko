@@ -15,6 +15,8 @@
   --deep:#3b245f;
 }
 
+html{ scroll-behavior:smooth; }  
+  
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -605,6 +607,66 @@ input{
   0%,100%{box-shadow:0 30px 90px rgba(124,95,214,.45)}
   50%{box-shadow:0 40px 120px rgba(160,120,255,.75)}
 }
+
+/* ===== FLOATING BUTTON ===== */
+.float-cta{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:9999;
+
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:14px 16px;
+  border-radius:999px;
+
+  background:linear-gradient(135deg,#7c5fd6,#b89cff);
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:.2px;
+
+  box-shadow:0 20px 60px rgba(124,95,214,.50);
+  transform:translateY(0);
+  transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+  opacity:.96;
+}
+
+.float-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 28px 90px rgba(160,120,255,.70);
+}
+
+.float-cta:active{
+  transform:translateY(1px) scale(.98);
+}
+
+.float-cta .tg-icon{
+  font-size:16px;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.25));
+}
+
+/* мягкое “дыхание” кнопки */
+@keyframes floatBreath{
+  0%,100%{ box-shadow:0 20px 60px rgba(124,95,214,.45) }
+  50%{ box-shadow:0 30px 95px rgba(160,120,255,.75) }
+}
+.float-cta{
+  animation:floatBreath 7s ease-in-out infinite;
+}
+
+/* мобильная аккуратность */
+@media(max-width:768px){
+  .float-cta{
+    right:14px;
+    bottom:14px;
+    padding:13px 14px;
+    font-size:13px;
+  }
+}
 </style>
 </head>
 
@@ -1034,5 +1096,25 @@ window.addEventListener("scroll",()=>{
   <span></span>
   <span></span>
 </div>
+<!-- FLOATING CTA -->
+<a href="#join" class="float-cta" aria-label="Хочу на 3 дня">
+  Хочу на 3 дня <span class="tg-icon">✈️</span>
+</a>
+<script>
+(function(){
+  const btn = document.querySelector('.float-cta');
+  const target = document.getElementById('join');
+  if(!btn || !target) return;
+
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      btn.style.opacity = e.isIntersecting ? "0" : "0.96";
+      btn.style.pointerEvents = e.isIntersecting ? "none" : "auto";
+    });
+  }, {threshold:0.35});
+
+  obs.observe(target);
+})();
+</script>
 </body>
 </html>
