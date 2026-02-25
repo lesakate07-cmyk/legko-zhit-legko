@@ -590,6 +590,21 @@ input{
   .take-text{ font-size:17px; }
   .take-card{ padding:16px 16px 16px 50px; }
 }
+
+/* ===== JOIN BUTTON ===== */
+.join-btn{
+  background:linear-gradient(135deg,#7c5fd6,#b89cff);
+  color:#fff;
+  font-size:20px;
+  padding:22px 46px;
+  box-shadow:0 30px 90px rgba(124,95,214,.55);
+  animation:joinPulse 8s ease-in-out infinite;
+}
+
+@keyframes joinPulse{
+  0%,100%{box-shadow:0 30px 90px rgba(124,95,214,.45)}
+  50%{box-shadow:0 40px 120px rgba(160,120,255,.75)}
+}
 </style>
 </head>
 
@@ -676,6 +691,21 @@ input{
   </div>
 </section>  
 
+<!-- JOIN BUTTON -->
+<section data-aos="fade-up">
+  <div class="glass" style="text-align:center; max-width:700px; margin:auto;">
+
+    <p style="font-size:20px; margin-bottom:30px;">
+      Если ты узнала себя — возможно, это и есть твоя точка входа в изменения.
+    </p>
+
+    <a href="#join" class="btn join-btn">
+      Занять своё место
+    </a>
+
+  </div>
+</section>
+  
 <!-- SCHEDULE -->
 <section data-aos="fade-up">
   <h2>Расписание проекта ТРЁХдневка</h2>
@@ -967,7 +997,7 @@ input{
 </section>
 
 <!-- CTA -->
-<section class="cta" data-aos="fade-up">
+<section class="cta" data-aos="fade-up" id="join">
 <h2>Лучший момент, чтобы начать изменения — СЕЙЧАС!</h2>
 <div class="arrow">↓</div>
 
