@@ -464,7 +464,132 @@ input{
 @media (max-width:768px){
   .who-lead{font-size:18px}
   .who-list li{padding:16px 16px 16px 50px}
-}    
+} 
+
+/* ===== TAKEAWAYS (3 days) ===== */
+.takeaways-block{
+  position:relative;
+  overflow:hidden;
+}
+
+.takeaways-block::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(184,156,255,.22), transparent 60%),
+    radial-gradient(circle at 80% 25%, rgba(124,95,214,.18), transparent 55%),
+    radial-gradient(circle at 50% 90%, rgba(255,255,255,.18), transparent 60%);
+  filter:blur(30px);
+  pointer-events:none;
+}
+
+.takeaways-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:16px;
+}
+
+.take-card{
+  position:relative;
+  padding:18px 18px 18px 54px;
+  border-radius:26px;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 18px 55px rgba(120,90,180,.18);
+  line-height:1.65;
+  font-weight:650;
+}
+
+.take-card::before{
+  content:"✦";
+  position:absolute;
+  left:18px;
+  top:16px;
+  width:28px;
+  height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:linear-gradient(135deg, rgba(124,95,214,.20), rgba(184,156,255,.22));
+  color:#5a3fa6;
+  font-weight:900;
+  box-shadow: inset 0 0 0 1px rgba(124,95,214,.16);
+}
+
+.take-card-strong{
+  grid-column:1 / -1;
+  background:linear-gradient(135deg, rgba(124,95,214,.10), rgba(184,156,255,.14));
+  box-shadow:
+    0 22px 70px rgba(120,90,180,.22),
+    inset 0 0 0 1px rgba(124,95,214,.14);
+  font-weight:800;
+}
+
+.take-divider{
+  position:relative;
+  margin:34px 0;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(124,95,214,.35), transparent);
+}
+
+.take-subhead{
+  position:relative;
+  font-size:22px;
+  font-weight:900;
+  color:#3b245f;
+  margin-bottom:12px;
+}
+
+.take-text{
+  position:relative;
+  margin:10px 0 0;
+  font-size:18px;
+}
+
+.take-list{
+  position:relative;
+  margin:14px 0 0;
+  padding-left:22px;
+}
+
+.take-list li{
+  margin:10px 0;
+}
+
+.take-quote{
+  position:relative;
+  margin-top:22px;
+  padding:16px 18px;
+  border-radius:22px;
+  background:rgba(255,255,255,.82);
+  box-shadow: inset 0 0 0 1px rgba(120,90,180,.14);
+  font-weight:750;
+  color:#3b245f;
+}
+
+.take-final{
+  position:relative;
+  margin-top:22px;
+  padding:18px 20px;
+  border-radius:26px;
+  background:linear-gradient(135deg, rgba(124,95,214,.12), rgba(184,156,255,.16));
+  box-shadow:
+    inset 0 0 0 1px rgba(124,95,214,.14),
+    0 18px 55px rgba(120,90,180,.16);
+  font-weight:800;
+  color:#3b245f;
+  text-align:center;
+}
+
+/* mobile */
+@media (max-width:768px){
+  .takeaways-grid{ grid-template-columns:1fr; }
+  .take-subhead{ font-size:20px; }
+  .take-text{ font-size:17px; }
+  .take-card{ padding:16px 16px 16px 50px; }
+}
 </style>
 </head>
 
@@ -741,6 +866,48 @@ input{
   </div>
 </div>
 
+</section>
+
+<!-- TAKEAWAYS -->
+<section data-aos="fade-up">
+  <h2>Что ты унесёшь с собой за эти 3 дня</h2>
+
+  <div class="glass takeaways-block">
+
+    <div class="takeaways-grid">
+      <div class="take-card">Чёткое понимание своей точки А</div>
+      <div class="take-card">Контакт с настоящими желаниями</div>
+      <div class="take-card">Осознание своих внутренних сценариев и ограничений</div>
+      <div class="take-card">Навык по-другому обходиться с сопротивлением и страхами</div>
+      <div class="take-card">Ощущение опоры на себя</div>
+      <div class="take-card take-card-strong">
+        И главное — внутреннее разрешение жить не “через терплю”, а через “выбираю”
+      </div>
+    </div>
+
+    <div class="take-divider"></div>
+
+    <div class="take-subhead">🌱 Почему после этого хочется продолжать</div>
+
+    <p class="take-text">Потому что ты:</p>
+    <ul class="take-list">
+      <li>уже чувствуешь разницу в состоянии,</li>
+      <li>уже видишь, где теряла себя,</li>
+      <li>уже понимаешь, что жить легче — это навык, а не случайность,</li>
+      <li>и очень не хочется возвращаться в старый режим «на автомате».</li>
+    </ul>
+
+    <div class="take-quote">
+      И это нормально.<br>
+      <strong>Это и есть точка роста.</strong>
+    </div>
+
+    <div class="take-final">
+      ✨ <strong>«Легко жить Легко»</strong> — это не про резкие перемены<br>
+      Это про когда внутри начинает складываться — и жить правда становится легче.
+    </div>
+
+  </div>
 </section>
 
 <!-- REVIEWS -->
