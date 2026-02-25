@@ -374,6 +374,97 @@ input{
   .day-card{ padding:26px 20px; }
   .day-title{ font-size:20px; }
 }
+
+/* ===== WHO IT'S FOR (diagnostics) ===== */
+.who-block{
+  position:relative;
+  overflow:hidden;
+}
+
+.who-block::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(184,156,255,.22), transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(124,95,214,.18), transparent 55%),
+    radial-gradient(circle at 55% 85%, rgba(255,255,255,.18), transparent 60%);
+  filter:blur(30px);
+  pointer-events:none;
+}
+
+.who-badge{
+  position:relative;
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(124,95,214,.14);
+  color:#4b2f8a;
+  font-weight:800;
+  letter-spacing:.2px;
+  margin-bottom:18px;
+  box-shadow: inset 0 0 0 1px rgba(124,95,214,.14);
+}
+
+.who-lead{
+  position:relative;
+  margin:0 0 10px;
+  font-size:20px;
+  font-weight:800;
+  color:#3b245f;
+}
+
+.who-list{
+  position:relative;
+  margin:18px 0 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:14px;
+}
+
+.who-list li{
+  position:relative;
+  padding:18px 18px 18px 54px;
+  border-radius:26px;
+  background:rgba(255,255,255,.90);
+  box-shadow:0 18px 55px rgba(120,90,180,.18);
+  line-height:1.7;
+}
+
+.who-list li::before{
+  content:"✦";
+  position:absolute;
+  left:18px;
+  top:16px;
+  width:28px;
+  height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:linear-gradient(135deg, rgba(124,95,214,.20), rgba(184,156,255,.22));
+  color:#5a3fa6;
+  font-weight:900;
+  box-shadow: inset 0 0 0 1px rgba(124,95,214,.16);
+}
+
+.who-accent{
+  position:relative;
+  margin-top:22px;
+  padding:18px 20px;
+  border-radius:24px;
+  background:linear-gradient(135deg, rgba(124,95,214,.10), rgba(184,156,255,.14));
+  box-shadow: inset 0 0 0 1px rgba(124,95,214,.14);
+  font-weight:800;
+  color:#3b245f;
+}
+
+/* mobile */
+@media (max-width:768px){
+  .who-lead{font-size:18px}
+  .who-list li{padding:16px 16px 16px 50px}
+}    
 </style>
 </head>
 
@@ -435,6 +526,30 @@ input{
 <p><strong>Если вы чувствуете, что готовы перестать начинать «с понедельника» и хотите наконец начать из себя — вам сюда.</strong></p>
 </div>
 </section>
+
+<!-- WHO IT'S FOR -->
+<section data-aos="fade-in">
+  <h2>Кому подойдёт эта диагностика</h2>
+
+  <div class="glass who-block">
+    <div class="who-badge">✨ Мягко • честно • по-настоящему</div>
+
+    <p class="who-lead">
+      Если ты:
+    </p>
+
+    <ul class="who-list">
+      <li>живёшь вроде «нормально», но внутри есть усталость, пустота или ощущение, что жизнь проходит мимо;</li>
+      <li>часто держишься, терпишь, справляешься — но давно не выбирала себя;</li>
+      <li>чувствуешь, что хочешь перемен, но не понимаешь, с чего начать и куда именно идти;</li>
+      <li>устала от резких рывков и хочешь мягкий, честный и устойчивый путь;</li>
+    </ul>
+
+    <div class="who-accent">
+      — значит, ты ровно в той точке, для которой создан этот формат.
+    </div>
+  </div>
+</section>  
 
 <!-- SCHEDULE -->
 <section data-aos="fade-up">
