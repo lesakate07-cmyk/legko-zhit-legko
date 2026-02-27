@@ -820,6 +820,119 @@ input{
     font-size:15px;
   }
 }
+
+/* ===== FAQ ===== */
+.faq-block{
+  position:relative;
+  overflow:hidden;
+}
+
+.faq-block::before{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(184,156,255,.22), transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(124,95,214,.18), transparent 55%),
+    radial-gradient(circle at 55% 85%, rgba(255,255,255,.18), transparent 60%);
+  filter:blur(30px);
+  pointer-events:none;
+}
+
+.faq-grid{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:16px;
+}
+
+.faq-item{
+  position:relative;
+  padding:22px 22px 22px 56px;
+  border-radius:28px;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 18px 55px rgba(120,90,180,.18);
+  line-height:1.65;
+}
+
+.faq-item::before{
+  content:"?";
+  position:absolute;
+  left:18px;
+  top:20px;
+  width:30px;
+  height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:linear-gradient(135deg, rgba(124,95,214,.20), rgba(184,156,255,.22));
+  color:#5a3fa6;
+  font-weight:900;
+  box-shadow: inset 0 0 0 1px rgba(124,95,214,.16);
+}
+
+.faq-q{
+  font-weight:900;
+  color:#3b245f;
+  margin-bottom:8px;
+  font-size:18px;
+}
+
+.faq-a{
+  opacity:.95;
+}
+
+.faq-price{
+  position:relative;
+  margin-top:26px;
+  padding:26px 26px;
+  border-radius:30px;
+  background:linear-gradient(135deg, rgba(124,95,214,.12), rgba(184,156,255,.18));
+  box-shadow:
+    inset 0 0 0 1px rgba(124,95,214,.14),
+    0 18px 55px rgba(120,90,180,.16);
+  text-align:center;
+}
+
+.price-title{
+  font-weight:900;
+  color:#3b245f;
+  font-size:20px;
+}
+
+.price-value{
+  margin-top:8px;
+  font-size:44px;
+  font-weight:1000;
+  color:#3b245f;
+  letter-spacing:.3px;
+}
+
+.price-list{
+  margin-top:12px;
+  font-size:16px;
+  line-height:1.8;
+  color:#3b245f;
+}
+
+.price-places{
+  margin-top:16px;
+  padding:12px 14px;
+  border-radius:18px;
+  display:inline-block;
+  background:rgba(255,255,255,.75);
+  box-shadow: inset 0 0 0 1px rgba(120,90,180,.14);
+  font-weight:850;
+  color:#3b245f;
+}
+
+/* mobile */
+@media (max-width:768px){
+  .faq-grid{ grid-template-columns:1fr; }
+  .faq-item{ padding:20px 18px 20px 52px; }
+  .price-value{ font-size:38px; }
+}
 </style>
 </head>
 
@@ -1117,48 +1230,6 @@ input{
 
 </section>
 
-<!-- TAKEAWAYS -->
-<section data-aos="fade-up">
-  <h2>Что ты унесёшь с собой за эти 3 дня</h2>
-
-  <div class="glass takeaways-block">
-
-    <div class="takeaways-grid">
-      <div class="take-card">Чёткое понимание своей точки А</div>
-      <div class="take-card">Контакт с настоящими желаниями</div>
-      <div class="take-card">Осознание своих внутренних сценариев и ограничений</div>
-      <div class="take-card">Навык по-другому обходиться с сопротивлением и страхами</div>
-      <div class="take-card">Ощущение опоры на себя</div>
-      <div class="take-card take-card-strong">
-        И главное — внутреннее разрешение жить не “через терплю”, а через “выбираю”
-      </div>
-    </div>
-
-    <div class="take-divider"></div>
-
-    <div class="take-subhead">Почему после этого хочется продолжать</div>
-
-    <p class="take-text">Потому что ты:</p>
-    <ul class="take-list">
-      <li>уже чувствуешь разницу в состоянии,</li>
-      <li>уже видишь, где теряла себя,</li>
-      <li>уже понимаешь, что жить легче — это навык, а не случайность,</li>
-      <li>и очень не хочется возвращаться в старый режим «на автомате».</li>
-    </ul>
-
-    <div class="take-quote">
-      И это нормально.<br>
-      <strong>Это и есть точка роста.</strong>
-    </div>
-
-    <div class="take-final">
-      ✨ <strong>«Легко жить Легко»</strong> — это не про резкие перемены<br>
-      Это когда внутри начинает складываться — и жить правда становится легче.
-    </div>
-
-  </div>
-</section>
-
 <!-- REVIEWS -->
 <section data-aos="fade-up">
 <h2>Отзывы участниц</h2>
@@ -1206,6 +1277,66 @@ input{
     </div>
 
     <p class="carousel-note">Листай и вдохновляйся ✨</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section data-aos="fade-up">
+  <h2>Ответы на вопросы</h2>
+
+  <div class="glass faq-block">
+
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <div class="faq-q">Будут ли записи?</div>
+        <div class="faq-a">Да, записи будут, но основная ценность — в живом участии и персональной работе.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Что если не могу в назначенное время?</div>
+        <div class="faq-a">
+          Время эфиров согласовывается с участницами, чтобы присутствовали все или делим на несколько групп.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">А что если формат мне не зайдёт?</div>
+        <div class="faq-a">
+          Если вдруг после первого дня ты понимаешь, что формат тебе не подходит — мы предложим индивидуальную сессию на 60 минут, чтобы ты ушла с решением.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Это терапия?</div>
+        <div class="faq-a">
+          Это трансформационный процесс с практиками, поддержкой и живым сопровождением от психологов.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Нужно ли что-то готовить заранее?</div>
+        <div class="faq-a">
+          Блокнот и ручка. Всё самое необходимое вы получите внутри интенсива.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="faq-price">
+      <div class="price-title">Стоимость участия</div>
+      <div class="price-value">2900 ₽</div>
+
+      <div class="price-list">
+        <div>— 3 живых эфира</div>
+        <div>— персональная работа</div>
+        <div>— практики</div>
+        <div>— общий чат поддержки</div>
+      </div>
+
+      <div class="price-places">Мест всего <strong>15</strong></div>
+    </div>
+
   </div>
 </section>
   
