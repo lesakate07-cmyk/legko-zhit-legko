@@ -1384,11 +1384,13 @@ window.addEventListener("scroll",()=>{
 })();
 </script>
 <script>
-window.addEventListener("load", function () {
-  if (!window.location.hash) {
-    window.scrollTo(0, 0);
-  }
-});
+window.onload = function() {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "instant"
+  });
+};
 </script>
 </body>
 </html>
