@@ -774,6 +774,52 @@ input{
   .slide{ width:84vw; }
   .car-btn{ display:none; } /* на телефоне и так свайп */
 }
+
+/* ===== HERO META INFO ===== */
+.hero-meta{
+  margin:30px auto 20px;
+  max-width:820px;
+  padding:22px 26px;
+  border-radius:28px;
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(14px);
+  box-shadow:0 25px 80px rgba(0,0,0,.25);
+  color:#fff;
+  font-size:17px;
+  line-height:1.7;
+}
+
+.meta-item{
+  margin:8px 0;
+}
+
+.meta-label{
+  font-weight:700;
+  opacity:.95;
+}
+
+.meta-places{
+  font-weight:800;
+  letter-spacing:.3px;
+}
+
+/* лёгкое дыхание */
+@keyframes heroMetaBreath{
+  0%,100%{box-shadow:0 25px 80px rgba(0,0,0,.25)}
+  50%{box-shadow:0 35px 110px rgba(160,120,255,.45)}
+}
+
+.hero-meta{
+  animation:heroMetaBreath 10s ease-in-out infinite;
+}
+
+/* mobile */
+@media(max-width:768px){
+  .hero-meta{
+    padding:18px 18px;
+    font-size:15px;
+  }
+}
 </style>
 </head>
 
@@ -785,9 +831,20 @@ input{
     <h1>Легко жить Легко</h1>
     <p><strong>ИНТЕНСИВ</strong></p>
     <p>3 дня, после которых ты перестанешь откладывать себя, свои реальные «хочу» на потом и прочувствуешь как это - жить легче</p>
-    <p>Формат: живые онлайн‑эфиры + персональная работа с психологами-практиками + общий чат</p>
-    <p>МЕСТ: до 15</p>
-    <br><br>
+    <div class="hero-meta">
+  <div class="meta-item">
+    <span class="meta-label">Старт:</span> 11 марта
+  </div>
+
+  <div class="meta-item">
+    <span class="meta-label">Формат:</span>
+    живые онлайн-эфиры + персональная работа с психологами-практиками + общий чат
+  </div>
+
+  <div class="meta-item meta-places">
+    <span class="meta-label">Мест:</span> до 15
+  </div>
+</div>
 
 <a
   href="https://t.me/legkolivelegko"
