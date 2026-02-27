@@ -1382,15 +1382,38 @@ window.addEventListener("scroll",()=>{
   // старт
   goTo(0);
 })();
-</script>
 <script>
-window.onload = function() {
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "instant"
+/* FORCE OPEN FROM TOP (mobile/safari fix) */
+(function () {
+  // отключаем восстановление скролла браузером
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  function goTop() {
+    // если открыли по якорю — убираем якорь, чтобы не прыгало вниз
+    if (location.hash) {
+      history.replaceState(null, document.title, location.pathname + location.search);
+    }
+    window.scrollTo(0, 0);
+  }
+
+  // срабатывает при обычной загрузке
+  window.addEventListener('load', function () {
+    setTimeout(goTop, 0);
+    setTimeout(goTop, 80);
+    setTimeout(goTop, 250);
   });
-};
+
+  // срабатывает когда Safari возвращает страницу из кэша (BFCache)
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      setTimeout(goTop, 0);
+      setTimeout(goTop, 80);
+      setTimeout(goTop, 250);
+    }
+  });
+})();
 </script>
 </body>
 </html>
